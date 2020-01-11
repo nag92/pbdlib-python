@@ -8,7 +8,7 @@ from .mvn import MVN
 
 
 class GMM(Model):
-	def __init__(self, nb_states=1, nb_dim=None, init_zeros=False, mu=None, lmbda=None, sigma=None, priors=None):
+	def __init__(self, nb_states=1, nb_dim=3, init_zeros=False, mu=None, lmbda=None, sigma=None, priors=None):
 		if mu is not None:
 			nb_states = mu.shape[0]
 			nb_dim = mu.shape[-1]
@@ -273,7 +273,7 @@ class GMM(Model):
 		self.priors = np.ones(self.nb_states) / self.nb_states
 
 	def em(self, data, reg=1e-8, maxiter=100, minstepsize=1e-5, diag=False, reg_finish=False,
-		   kmeans_init=False, random_init=True, dep_mask=None, verbose=False, only_scikit=False,
+		   kmeans_init=False, random_init=False, dep_mask=None, verbose=False, only_scikit=False,
 		    no_init=False):
 		"""
 
@@ -368,6 +368,9 @@ class GMM(Model):
 					return GAMMA
 		if verbose:
 			print("GMM did not converge before reaching max iteration. Consider augmenting the number of max iterations.")
+
+
+
 		return GAMMA
 
 
