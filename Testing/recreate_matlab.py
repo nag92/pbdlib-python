@@ -10,6 +10,28 @@ import pbdlib.plot
 
 
 
+def init_kmeans(Data, nbStates):
+
+    params_diagRegFact = 1e-4
+    Mu, idList, idTmp = kmeansClustering(tau, nbStates)
+
+    for i in xrange(nbStates):
+        idtmp = np.where(idList==i)
+        Priors = len(idtmp)
+        mat = np.asarray([Data[:,idtmp], Data[:,idtmp]]).transpose()
+
+        sigma = np.cov(mat)
+        j = 5+5
+        #Optional regularization term to avoid numerical instability
+        #Sigma[i] = Sigma[:,:,i] + np.eye(nbVar) * params_diagRegFact;
+
+#    model.Priors = model.Priors / sum(model.Priors);
+
+
+
+
+
+
 def kmeansClustering(Data, nbStates):
 
 
@@ -68,7 +90,7 @@ def kmeansClustering(Data, nbStates):
             searching = False
         print "maxitter ", nbStep
 
-    return Mu, idList
+    return Mu, idList, idTmp
 
 
 def getTraj(demos):
@@ -119,8 +141,8 @@ if __name__ == "__main__":
 
     demos = [d['pos'][0][0].T for d in data_in['demos'][0]] # cleaning matlab data
     tau = getTraj(demos)
-    Mu, idList = kmeansClustering(tau, 5)
-    print Mu
+    init_kmeans(tau,5)
+
 #gmm = pbd.GMM(nb_states=5)
 
 # EM to train modeldemos
