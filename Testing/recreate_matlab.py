@@ -95,6 +95,7 @@ for n in xrange(samples):
     size = demo.shape[0]
     x = pbd.functions.spline(np.arange(1, size+1), demo, np.linspace(1, size, nbData))
     dx = np.divide(np.diff(x, 1), np.power(dt, 1))
+    grad = np.diff(x, 1)
     dx = np.vstack((np.append([0.0], dx[0]), np.append( [0.0], dx[1])))
     ddx = np.divide(np.diff(x, 2), np.power(dt, 2))
     ddx = np.vstack((np.append([0.0, 0.0], ddx[0]), np.append( [0.0, 0.0], ddx[1])))
@@ -107,7 +108,6 @@ for n in xrange(samples):
 
 
 tau = np.vstack((sIn*samples, taux, tauy))
-print len
 kmeansClustering(tau, 5)
 #gmm = pbd.GMM(nb_states=5)
 

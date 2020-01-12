@@ -2,76 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1b4986d-d99d-4c9a-8402-57f9e5620586" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Testing/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Testing/recreate_matlab.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notebooks/MEMMO/Product - Bayesian GMM and LQR - Velocity controlled system .ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/notebooks/MEMMO/Product - Bayesian GMM and LQR - Velocity controlled system .ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notebooks/Presentation - Bayesian analysis MVN - Bayesian GMR - Policy imitation.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/notebooks/Presentation - Bayesian analysis MVN - Bayesian GMR - Policy imitation.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notebooks/pbdlib - GMR time-dependent.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/notebooks/pbdlib - GMR time-dependent.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notebooks/pbdlib - GMR-HMM-HSMM for regression between time series.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/notebooks/pbdlib - GMR-HMM-HSMM for regression between time series.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notebooks/pbdlib - basics.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/notebooks/pbdlib - basics.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pbdlib/functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/pbdlib/functions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pbdlib/gmm.py" beforeDir="false" afterPath="$PROJECT_DIR$/pbdlib/gmm.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pbdlib/gui/demos.py" beforeDir="false" afterPath="$PROJECT_DIR$/pbdlib/gui/demos.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pbdlib/gui/multi_cs_demos.py" beforeDir="false" afterPath="$PROJECT_DIR$/pbdlib/gui/multi_cs_demos.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pbdlib/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/pbdlib/model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pbdlib/utils/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/pbdlib/utils/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Testing/recreate_matlab.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/recreate_matlab.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pbdlib/gmm.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1550">
-              <caret line="383" column="31" lean-forward="true" selection-start-line="383" selection-start-column="31" selection-end-line="383" selection-end-column="31" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pbdlib/model.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="341">
-              <caret line="11" column="42" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Testing/recreate_matlab.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
-              <caret line="58" selection-start-line="58" selection-end-line="58" />
-              <folding>
-                <element signature="e#1#19#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/.local/lib/python2.7/site-packages/numpy/matlib.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="e#0#64#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -88,21 +26,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/pbdlib/utils/utils.py" />
-        <option value="$PROJECT_DIR$/pbdlib/utils/__init__.py" />
-        <option value="$PROJECT_DIR$/pbdlib/gui/demos.py" />
-        <option value="$PROJECT_DIR$/pbdlib/gui/multi_cs_demos.py" />
-        <option value="$PROJECT_DIR$/pbdlib/utils/jupyter_utils.py" />
-        <option value="$PROJECT_DIR$/pbdlib/functions.py" />
-        <option value="$PROJECT_DIR$/pbdlib/model.py" />
-        <option value="$PROJECT_DIR$/pbdlib/gmm.py" />
-        <option value="$PROJECT_DIR$/Testing/recreate_matlab.py" />
-      </list>
-    </option>
   </component>
   <component name="JQLSearcherProjectManager">
     <selected>-1</selected>
@@ -123,53 +46,10 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="240" />
-    <option name="y" value="156" />
-    <option name="width" value="1440" />
-    <option name="height" value="792" />
-  </component>
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="pbdlib-python" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pbdlib-python" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pbdlib-python" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pbdlib-python" type="462c0819:PsiDirectoryNode" />
-              <item name="gui" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pbdlib-python" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pbdlib-python" type="462c0819:PsiDirectoryNode" />
-              <item name="pbdlib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pbdlib-python" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pbdlib-python" type="462c0819:PsiDirectoryNode" />
-              <item name="pop" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pbdlib-python" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pbdlib-python" type="462c0819:PsiDirectoryNode" />
-              <item name="Testing" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
-  </component>
+  <component name="ProjectId" id="1WGQg9izSMuguSO1l22Sy7HsgBO" />
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="ignore_missing_gitignore" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
@@ -226,37 +106,24 @@
     </task>
     <servers />
   </component>
-  <component name="ToolWindowManager">
-    <frame x="0" y="24" width="1920" height="1056" extended-state="0" />
-    <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.47894737" visible="true" weight="0.12150026" />
-      <window_info id="Structure" order="1" sideWeight="0.52105266" side_tool="true" weight="0.12506597" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.17161018" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.5476695" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.65995765" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32944915" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Python Console" order="10" weight="0.4618644" />
-      <window_info anchor="bottom" id="JIRA" order="11" />
-      <window_info anchor="bottom" id="Statistic" order="12" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Testing/recreate_matlab.py</url>
-          <line>58</line>
-          <option name="timeStamp" value="24" />
+          <line>25</line>
+          <option name="timeStamp" value="28" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -267,171 +134,5 @@
         </breakpoint>
       </default-breakpoints>
     </breakpoint-manager>
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pbdlib/gmr.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="31">
-          <caret line="93" column="48" selection-start-line="93" selection-start-column="48" selection-end-line="93" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/notebooks/pbdlib - GMR time-dependent.ipynb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4650" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/notebooks/pbdlib - GMR-HMM-HSMM for regression between time series.ipynb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4309">
-          <caret line="139" column="9" selection-start-line="139" selection-start-column="9" selection-end-line="139" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gui/demos.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pop/Test Bayesian GMM - Policy - Time dependent LQR.ipynb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="15" column="6" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pop/Test Bayesian GMM - Position - Velocity Product.ipynb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pbdlib/utils/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="11" column="23" lean-forward="true" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pbdlib/utils/gaussian_utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="62">
-          <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pbdlib/gui/multi_cs_demos.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="31">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pbdlib/utils/jupyter_utils.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pbdlib/functions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="447">
-          <caret line="50" column="37" lean-forward="true" selection-start-line="50" selection-start-column="37" selection-end-line="50" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pbdlib/utils/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="31">
-          <caret line="1" column="1" selection-start-line="1" selection-start-column="1" selection-end-line="1" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pbdlib/gui/demos.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="11" column="46" lean-forward="true" selection-start-line="11" selection-start-column="46" selection-end-line="11" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/notebooks/record_demo.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <element signature="e#0#64#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.local/lib/python2.7/site-packages/numpy/lib/twodim_base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="200" selection-start-line="200" selection-end-line="200" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.local/lib/python2.7/site-packages/sklearn/utils/validation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="126" column="4" selection-start-line="126" selection-start-column="4" selection-end-line="126" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pbdlib/gmm.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1550">
-          <caret line="383" column="31" lean-forward="true" selection-start-line="383" selection-start-column="31" selection-end-line="383" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.local/lib/python2.7/site-packages/sklearn/cluster/k_means_.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5363">
-          <caret line="314" selection-start-line="314" selection-end-line="314" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pbdlib/model.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="11" column="42" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.local/lib/python2.7/site-packages/numpy/matlib.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#64#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Testing/recreate_matlab.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="58" selection-start-line="58" selection-end-line="58" />
-          <folding>
-            <element signature="e#1#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
   </component>
 </project>
