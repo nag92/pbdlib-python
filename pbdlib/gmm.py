@@ -259,6 +259,18 @@ class GMM(Model):
 
 		self.init_priors = np.ones(self.nb_states) * 1. / self.nb_states
 
+	def init_params_custom_kmeans(self, data):
+
+		params_diagRegFact = 1e-4
+		Mu, idList, idTmp = kmeansClustering(tau, nbStates)
+
+		for i in xrange(nbStates):
+			idtmp = np.where(idList == i)
+			Priors = len(idtmp)
+			mat = np.asarray([Data[:, idtmp], Data[:, idtmp]])
+
+			sigma = np.cov(mat)
+
 
 	def init_params_random(self, data):
 		mu = np.mean(data, axis=0)
@@ -325,21 +337,18 @@ class GMM(Model):
 			L_log = np.zeros((self.nb_states, nb_samples))
 
 			for i in range(self.nb_states):
-				L_log[i, :] = np.log(self.priors[i]) + multi_variate_normal(data.T, self.mu[i],
-												   self.sigma[i], log=True)
+				L_log[i, :] = np.log(self.priors[i]) + multi_variate_normal(data.T, self.mu[i], self.sigma[i], log=True)
 
 			L = np.exp(L_log)
 			GAMMA = L / np.sum(L, axis=0)
 			GAMMA2 = GAMMA / np.sum(GAMMA, axis=1)[:, np.newaxis]
 
 			# M-step
-			self.mu = np.einsum('ac,ic->ai', GAMMA2,
-									data)  # a states, c sample, i dim
+			self.mu = np.einsum('ac,ic->ai', GAMMA2, data)  # a states, c sample, i dim
 
 			dx = data[None, :] - self.mu[:, :, None]  # nb_dim, nb_states, nb_samples
 
-			self.sigma = np.einsum('acj,aic->aij', np.einsum('aic,ac->aci', dx, GAMMA2),
-									   dx)  # a states, c sample, i-j dim
+			self.sigma = np.einsum('acj,aic->aij', np.einsum('aic,ac->aci', dx, GAMMA2), dx)  # a states, c sample, i-j dim
 
 			# #self.sigma += self.reg
 			#

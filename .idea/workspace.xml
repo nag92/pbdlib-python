@@ -2,13 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1b4986d-d99d-4c9a-8402-57f9e5620586" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Testing/temp.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Testing/usingGMM.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Testing/recreate_matlab.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/recreate_matlab.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notebooks/pbdlib - GMR time-dependent.ipynb" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/notebooks/pbdlib - GMR-HMM-HSMM for regression between time series.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/notebooks/pbdlib - GMR-HMM-HSMM for regression between time series.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notebooks/pbdlib - LQR.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/notebooks/pbdlib - LQR.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notebooks/pbdlib - basics.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/notebooks/pbdlib - basics.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notebooks/pbdlib-GMR-time-dependent.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/notebooks/pbdlib-GMR-time-dependent.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pbdlib/gmm.py" beforeDir="false" afterPath="$PROJECT_DIR$/pbdlib/gmm.py" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -62,19 +65,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.temp">
     <configuration name="recreate_matlab" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="pbdlib-python" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -96,11 +87,89 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="temp" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="pbdlib-python" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Testing" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Testing/temp.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="uhh" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="pbdlib-python" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Testing" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Testing/uhh.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="usingGMM" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="pbdlib-python" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Testing" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Testing/usingGMM.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.temp" />
+        <item itemvalue="Python.usingGMM" />
+        <item itemvalue="Python.uhh" />
         <item itemvalue="Python.recreate_matlab" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -129,42 +198,46 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="1898" y="170" width="955" height="765" key="#xdebugger.evaluate" timestamp="1578861384185">
+    <state x="1417" y="227" width="1235" height="650" key="#xdebugger.XInspectDialog" timestamp="1578938734273">
       <screen x="1080" y="0" width="1920" height="1080" />
     </state>
-    <state x="1898" y="170" width="955" height="765" key="#xdebugger.evaluate/1080.0.1920.1080/0.27.1080.1893@1080.0.1920.1080" timestamp="1578861384185" />
-    <state width="1897" height="446" key="GridCell.Tab.0.bottom" timestamp="1578861518911">
+    <state x="1417" y="227" width="1235" height="650" key="#xdebugger.XInspectDialog/1080.0.1920.1080/0.27.1080.1893@1080.0.1920.1080" timestamp="1578938734273" />
+    <state x="1898" y="170" width="955" height="765" key="#xdebugger.evaluate" timestamp="1578932856654">
       <screen x="1080" y="0" width="1920" height="1080" />
     </state>
-    <state width="1897" height="446" key="GridCell.Tab.0.bottom/1080.0.1920.1080/0.27.1080.1893@1080.0.1920.1080" timestamp="1578861518911" />
-    <state width="1897" height="446" key="GridCell.Tab.0.center" timestamp="1578861518911">
+    <state x="1898" y="170" width="955" height="765" key="#xdebugger.evaluate/1080.0.1920.1080/0.27.1080.1893@1080.0.1920.1080" timestamp="1578932856654" />
+    <state width="1897" height="-12" key="GridCell.Tab.0.bottom" timestamp="1578950261325">
       <screen x="1080" y="0" width="1920" height="1080" />
     </state>
-    <state width="1897" height="446" key="GridCell.Tab.0.center/1080.0.1920.1080/0.27.1080.1893@1080.0.1920.1080" timestamp="1578861518911" />
-    <state width="1897" height="446" key="GridCell.Tab.0.left" timestamp="1578861518911">
+    <state width="1897" height="-12" key="GridCell.Tab.0.bottom/1080.0.1920.1080/0.27.1080.1893@1080.0.1920.1080" timestamp="1578950261325" />
+    <state width="1897" height="-12" key="GridCell.Tab.0.center" timestamp="1578950261325">
       <screen x="1080" y="0" width="1920" height="1080" />
     </state>
-    <state width="1897" height="446" key="GridCell.Tab.0.left/1080.0.1920.1080/0.27.1080.1893@1080.0.1920.1080" timestamp="1578861518911" />
-    <state width="1897" height="446" key="GridCell.Tab.0.right" timestamp="1578861518911">
+    <state width="1897" height="-12" key="GridCell.Tab.0.center/1080.0.1920.1080/0.27.1080.1893@1080.0.1920.1080" timestamp="1578950261325" />
+    <state width="1897" height="-12" key="GridCell.Tab.0.left" timestamp="1578950261325">
       <screen x="1080" y="0" width="1920" height="1080" />
     </state>
-    <state width="1897" height="446" key="GridCell.Tab.0.right/1080.0.1920.1080/0.27.1080.1893@1080.0.1920.1080" timestamp="1578861518911" />
-    <state width="1897" height="446" key="GridCell.Tab.1.bottom" timestamp="1578861521162">
+    <state width="1897" height="-12" key="GridCell.Tab.0.left/1080.0.1920.1080/0.27.1080.1893@1080.0.1920.1080" timestamp="1578950261325" />
+    <state width="1897" height="-12" key="GridCell.Tab.0.right" timestamp="1578950261325">
       <screen x="1080" y="0" width="1920" height="1080" />
     </state>
-    <state width="1897" height="446" key="GridCell.Tab.1.bottom/1080.0.1920.1080/0.27.1080.1893@1080.0.1920.1080" timestamp="1578861521162" />
-    <state width="1897" height="446" key="GridCell.Tab.1.center" timestamp="1578861521162">
+    <state width="1897" height="-12" key="GridCell.Tab.0.right/1080.0.1920.1080/0.27.1080.1893@1080.0.1920.1080" timestamp="1578950261325" />
+    <state width="1897" height="231" key="GridCell.Tab.1.bottom" timestamp="1578946024135">
       <screen x="1080" y="0" width="1920" height="1080" />
     </state>
-    <state width="1897" height="446" key="GridCell.Tab.1.center/1080.0.1920.1080/0.27.1080.1893@1080.0.1920.1080" timestamp="1578861521162" />
-    <state width="1897" height="446" key="GridCell.Tab.1.left" timestamp="1578861521162">
+    <state width="1897" height="231" key="GridCell.Tab.1.bottom/1080.0.1920.1080/0.27.1080.1893@1080.0.1920.1080" timestamp="1578946024135" />
+    <state width="1897" height="231" key="GridCell.Tab.1.center" timestamp="1578946024134">
       <screen x="1080" y="0" width="1920" height="1080" />
     </state>
-    <state width="1897" height="446" key="GridCell.Tab.1.left/1080.0.1920.1080/0.27.1080.1893@1080.0.1920.1080" timestamp="1578861521162" />
-    <state width="1897" height="446" key="GridCell.Tab.1.right" timestamp="1578861521162">
+    <state width="1897" height="231" key="GridCell.Tab.1.center/1080.0.1920.1080/0.27.1080.1893@1080.0.1920.1080" timestamp="1578946024134" />
+    <state width="1897" height="231" key="GridCell.Tab.1.left" timestamp="1578946024134">
       <screen x="1080" y="0" width="1920" height="1080" />
     </state>
-    <state width="1897" height="446" key="GridCell.Tab.1.right/1080.0.1920.1080/0.27.1080.1893@1080.0.1920.1080" timestamp="1578861521162" />
+    <state width="1897" height="231" key="GridCell.Tab.1.left/1080.0.1920.1080/0.27.1080.1893@1080.0.1920.1080" timestamp="1578946024134" />
+    <state width="1897" height="231" key="GridCell.Tab.1.right" timestamp="1578946024134">
+      <screen x="1080" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1897" height="231" key="GridCell.Tab.1.right/1080.0.1920.1080/0.27.1080.1893@1080.0.1920.1080" timestamp="1578946024134" />
     <state x="1521" y="188" key="SettingsEditor" timestamp="1578848880722">
       <screen x="1080" y="0" width="1920" height="1080" />
     </state>
@@ -174,9 +247,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Testing/recreate_matlab.py</url>
-          <line>22</line>
-          <option name="timeStamp" value="48" />
+          <url>file://$PROJECT_DIR$/Testing/uhh.py</url>
+          <line>32</line>
+          <option name="timeStamp" value="72" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

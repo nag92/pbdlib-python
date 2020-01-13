@@ -21,7 +21,6 @@ def init_kmeans(Data, nbStates):
         mat = np.asarray([Data[:,idtmp], Data[:,idtmp]])
 
         sigma = np.cov(mat)
-        j = 5+5
         #Optional regularization term to avoid numerical instability
         #Sigma[i] = Sigma[:,:,i] + np.eye(nbVar) * params_diagRegFact;
 
