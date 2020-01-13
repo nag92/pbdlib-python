@@ -4,7 +4,11 @@
     <list default="true" id="f1b4986d-d99d-4c9a-8402-57f9e5620586" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Testing/recreate_matlab.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/recreate_matlab.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notebooks/pbdlib - GMR time-dependent.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/notebooks/pbdlib - GMR-HMM-HSMM for regression between time series.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/notebooks/pbdlib - GMR-HMM-HSMM for regression between time series.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pbdlib/gmm.py" beforeDir="false" afterPath="$PROJECT_DIR$/pbdlib/gmm.py" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -58,6 +62,18 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
   <component name="RunManager">
     <configuration name="recreate_matlab" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="pbdlib-python" />
@@ -85,18 +101,6 @@
         <item itemvalue="Python.recreate_matlab" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />

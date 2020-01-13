@@ -18,7 +18,7 @@ def init_kmeans(Data, nbStates):
     for i in xrange(nbStates):
         idtmp = np.where(idList==i)
         Priors = len(idtmp)
-        mat = np.asarray([Data[:,idtmp], Data[:,idtmp]]).transpose()
+        mat = np.asarray([Data[:,idtmp], Data[:,idtmp]])
 
         sigma = np.cov(mat)
         j = 5+5
@@ -141,7 +141,22 @@ if __name__ == "__main__":
 
     demos = [d['pos'][0][0].T for d in data_in['demos'][0]] # cleaning matlab data
     tau = getTraj(demos)
-    init_kmeans(tau,5)
+    gmm = pbd.GMM(nb_states=nb_states)
+    gmm.em(np.concatenate(demos), reg=1e-8)
+
+    n = 0
+
+    resp_gmm = gmm.compute_resp(demos[n], marginal=slice(0, 2))
+
+    fig, ax = plt.subplots(nrows=3)
+    fig.set_size_inches(7.5, 3.6)
+
+    ax[0].plot(resp_gmm.T, lw=1);
+
+
+    [ax[i].set_ylim([-0.2, 1.2]) for i in range(3)]
+    plt.xlabel('timestep');
+    #init_kmeans(tau,5)
 
 #gmm = pbd.GMM(nb_states=5)
 

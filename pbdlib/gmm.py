@@ -341,13 +341,13 @@ class GMM(Model):
 			self.sigma = np.einsum('acj,aic->aij', np.einsum('aic,ac->aci', dx, GAMMA2),
 									   dx)  # a states, c sample, i-j dim
 
-			self.sigma += self.reg
-
-			if diag:
-				self.sigma *= np.eye(self.nb_dim)
-
-			if dep_mask is not None:
-				self.sigma *= dep_mask
+			# #self.sigma += self.reg
+			#
+			# if diag:
+			# 	self.sigma *= np.eye(self.nb_dim)
+			#
+			# if dep_mask is not None:
+			# 	self.sigma *= dep_mask
 
 			# print self.Sigma[:,u :, i]
 
