@@ -22,7 +22,7 @@ class Model(object):
 		self._eta = None
 
 		self._reg = None
-		self.nb_dim = nb_dim
+
 
 		self._has_finish_state = False
 		self._has_init_state = False

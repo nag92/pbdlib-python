@@ -9,11 +9,11 @@ from .mvn import MVN
 
 class GMM(Model):
 	def __init__(self, nb_states=1, nb_dim=3, init_zeros=False, mu=None, lmbda=None, sigma=None, priors=None):
-		if mu is not None:
-			nb_states = mu.shape[0]
-			nb_dim = mu.shape[-1]
+		# if mu is not None:
+		# 	nb_states = mu.shape[0]
+		# 	nb_dim = mu.shape[-1]
 
-		Model.__init__(self, nb_states, nb_dim)
+		Model.__init__(self, nb_states=nb_states, nb_dim=nb_dim)
 		# flag to indicate that publishing was not init
 		self.publish_init = False
 
@@ -259,18 +259,6 @@ class GMM(Model):
 
 		self.init_priors = np.ones(self.nb_states) * 1. / self.nb_states
 
-	def init_params_custom_kmeans(self, data):
-
-		params_diagRegFact = 1e-4
-		Mu, idList, idTmp = kmeansClustering(tau, nbStates)
-
-		for i in xrange(nbStates):
-			idtmp = np.where(idList == i)
-			Priors = len(idtmp)
-			mat = np.asarray([Data[:, idtmp], Data[:, idtmp]])
-
-			sigma = np.cov(mat)
-
 
 	def init_params_random(self, data):
 		mu = np.mean(data, axis=0)
@@ -286,7 +274,7 @@ class GMM(Model):
 
 	def em(self, data, reg=1e-8, maxiter=100, minstepsize=1e-5, diag=False, reg_finish=False,
 		   kmeans_init=False, random_init=False, dep_mask=None, verbose=False, only_scikit=False,
-		    no_init=False):
+		    no_init=True):
 		"""
 
 		:param data:	 		[np.array([nb_timesteps, nb_dim])]
@@ -337,7 +325,7 @@ class GMM(Model):
 			L_log = np.zeros((self.nb_states, nb_samples))
 
 			for i in range(self.nb_states):
-				L_log[i, :] = np.log(self.priors[i]) + multi_variate_normal(data.T, self.mu[i], self.sigma[i], log=True)
+				L_log[i, :] = np.log(self.priors[i]) + multi_variate_normal(data.T, self.mu[:,i], self.sigma[i], log=True)
 
 			L = np.exp(L_log)
 			GAMMA = L / np.sum(L, axis=0)

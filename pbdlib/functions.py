@@ -185,7 +185,9 @@ def multi_variate_normal_old(x, mean, covar):
 	else:
 		n_data = x.shape[0]
 
-	diff = (x - mean).T
+	nbData = x.shape[1]
+	mu = np.matlib.repmat(mean.reshape((-1, 1)), 1, nbData)
+	diff = (x - mu).T
 
 	# Distinguish between multi and single variate distribution:
 	if n_vars > 1:
@@ -300,7 +302,7 @@ def multi_variate_t(x, nu, mu, sigma=None, log=True, gmm=False, lmbda=None):
 		raise NotImplementedError
 
 
-def multi_variate_normal(x, mu, sigma=None, log=True, gmm=False, lmbda=None):
+def multi_variate_normal(x, mu, sigma=None, log=True, gmm=False, lmbda=None ):
 	"""
 	Multivariatve normal distribution PDF
 
@@ -318,9 +320,11 @@ def multi_variate_normal(x, mu, sigma=None, log=True, gmm=False, lmbda=None):
 		if sigma is not None:
 			sigma = sigma[None, None] if sigma.shape == () else sigma
 
+		nbData = x.shape[1]
+
 		mu = mu[None] if mu.shape == () else mu
 		x = x[:, None] if x.ndim == 1 else x
-
+		mu = np.matlib.repmat(mu.reshape((3, 1)), 1, nbData)
 		dx = mu - x
 		lmbda_ = np.linalg.inv(sigma) if lmbda is None else lmbda
 
