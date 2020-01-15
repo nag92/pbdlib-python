@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1b4986d-d99d-4c9a-8402-57f9e5620586" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Testing/using_gmm_prime.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pbdlib/gmm_prime.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pbdlib/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/pbdlib/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pbdlib/functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/pbdlib/functions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pbdlib/gmm.py" beforeDir="false" afterPath="$PROJECT_DIR$/pbdlib/gmm.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pbdlib/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/pbdlib/model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pbdlib/gmm_prime.py" beforeDir="false" afterPath="$PROJECT_DIR$/pbdlib/gmm_prime.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -212,46 +208,50 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="1417" y="227" width="1235" height="650" key="#xdebugger.XInspectDialog" timestamp="1578938734273">
+    <state x="1723" y="289" width="624" height="526" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1579108477089">
       <screen x="1080" y="0" width="1920" height="1080" />
     </state>
-    <state x="1417" y="227" width="1235" height="650" key="#xdebugger.XInspectDialog/1080.0.1920.1080/0.27.1080.1893@1080.0.1920.1080" timestamp="1578938734273" />
-    <state x="1161" y="253" width="955" height="765" key="#xdebugger.evaluate" timestamp="1579031705467">
+    <state x="1723" y="289" width="624" height="526" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/1080.0.1920.1080/0.27.1080.1893@1080.0.1920.1080" timestamp="1579108477089" />
+    <state x="1417" y="227" width="1235" height="650" key="#xdebugger.XInspectDialog" timestamp="1579115219601">
       <screen x="1080" y="0" width="1920" height="1080" />
     </state>
-    <state x="1161" y="253" width="955" height="765" key="#xdebugger.evaluate/1080.0.1920.1080/0.27.1080.1893@1080.0.1920.1080" timestamp="1579031705467" />
-    <state width="1874" height="401" key="GridCell.Tab.0.bottom" timestamp="1579038891702">
+    <state x="1417" y="227" width="1235" height="650" key="#xdebugger.XInspectDialog/1080.0.1920.1080/0.27.1080.1893@1080.0.1920.1080" timestamp="1579115219601" />
+    <state x="1927" y="283" width="955" height="765" key="#xdebugger.evaluate" timestamp="1579116391829">
       <screen x="1080" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="401" key="GridCell.Tab.0.bottom/1080.0.1920.1080/0.27.1080.1893@1080.0.1920.1080" timestamp="1579038891702" />
-    <state width="1874" height="401" key="GridCell.Tab.0.center" timestamp="1579038891702">
+    <state x="1927" y="283" width="955" height="765" key="#xdebugger.evaluate/1080.0.1920.1080/0.27.1080.1893@1080.0.1920.1080" timestamp="1579116391829" />
+    <state width="1874" height="530" key="GridCell.Tab.0.bottom" timestamp="1579116974972">
       <screen x="1080" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="401" key="GridCell.Tab.0.center/1080.0.1920.1080/0.27.1080.1893@1080.0.1920.1080" timestamp="1579038891702" />
-    <state width="1874" height="401" key="GridCell.Tab.0.left" timestamp="1579038891702">
+    <state width="1874" height="530" key="GridCell.Tab.0.bottom/1080.0.1920.1080/0.27.1080.1893@1080.0.1920.1080" timestamp="1579116974972" />
+    <state width="1874" height="530" key="GridCell.Tab.0.center" timestamp="1579116974972">
       <screen x="1080" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="401" key="GridCell.Tab.0.left/1080.0.1920.1080/0.27.1080.1893@1080.0.1920.1080" timestamp="1579038891702" />
-    <state width="1874" height="401" key="GridCell.Tab.0.right" timestamp="1579038891702">
+    <state width="1874" height="530" key="GridCell.Tab.0.center/1080.0.1920.1080/0.27.1080.1893@1080.0.1920.1080" timestamp="1579116974972" />
+    <state width="1874" height="530" key="GridCell.Tab.0.left" timestamp="1579116974972">
       <screen x="1080" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="401" key="GridCell.Tab.0.right/1080.0.1920.1080/0.27.1080.1893@1080.0.1920.1080" timestamp="1579038891702" />
-    <state width="1874" height="481" key="GridCell.Tab.1.bottom" timestamp="1579032019184">
+    <state width="1874" height="530" key="GridCell.Tab.0.left/1080.0.1920.1080/0.27.1080.1893@1080.0.1920.1080" timestamp="1579116974972" />
+    <state width="1874" height="530" key="GridCell.Tab.0.right" timestamp="1579116974972">
       <screen x="1080" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="481" key="GridCell.Tab.1.bottom/1080.0.1920.1080/0.27.1080.1893@1080.0.1920.1080" timestamp="1579032019184" />
-    <state width="1874" height="481" key="GridCell.Tab.1.center" timestamp="1579032019184">
+    <state width="1874" height="530" key="GridCell.Tab.0.right/1080.0.1920.1080/0.27.1080.1893@1080.0.1920.1080" timestamp="1579116974972" />
+    <state width="1874" height="530" key="GridCell.Tab.1.bottom" timestamp="1579116977476">
       <screen x="1080" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="481" key="GridCell.Tab.1.center/1080.0.1920.1080/0.27.1080.1893@1080.0.1920.1080" timestamp="1579032019184" />
-    <state width="1874" height="481" key="GridCell.Tab.1.left" timestamp="1579032019184">
+    <state width="1874" height="530" key="GridCell.Tab.1.bottom/1080.0.1920.1080/0.27.1080.1893@1080.0.1920.1080" timestamp="1579116977476" />
+    <state width="1874" height="530" key="GridCell.Tab.1.center" timestamp="1579116977476">
       <screen x="1080" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="481" key="GridCell.Tab.1.left/1080.0.1920.1080/0.27.1080.1893@1080.0.1920.1080" timestamp="1579032019184" />
-    <state width="1874" height="481" key="GridCell.Tab.1.right" timestamp="1579032019184">
+    <state width="1874" height="530" key="GridCell.Tab.1.center/1080.0.1920.1080/0.27.1080.1893@1080.0.1920.1080" timestamp="1579116977476" />
+    <state width="1874" height="530" key="GridCell.Tab.1.left" timestamp="1579116977476">
       <screen x="1080" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="481" key="GridCell.Tab.1.right/1080.0.1920.1080/0.27.1080.1893@1080.0.1920.1080" timestamp="1579032019184" />
+    <state width="1874" height="530" key="GridCell.Tab.1.left/1080.0.1920.1080/0.27.1080.1893@1080.0.1920.1080" timestamp="1579116977476" />
+    <state width="1874" height="530" key="GridCell.Tab.1.right" timestamp="1579116977476">
+      <screen x="1080" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1874" height="530" key="GridCell.Tab.1.right/1080.0.1920.1080/0.27.1080.1893@1080.0.1920.1080" timestamp="1579116977476" />
     <state x="1521" y="188" key="SettingsEditor" timestamp="1578848880722">
       <screen x="1080" y="0" width="1920" height="1080" />
     </state>
@@ -269,6 +269,11 @@
           <url>file://$PROJECT_DIR$/Testing/usingGMM.py</url>
           <line>59</line>
           <option name="timeStamp" value="73" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/pbdlib/gmm_prime.py</url>
+          <line>176</line>
+          <option name="timeStamp" value="81" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

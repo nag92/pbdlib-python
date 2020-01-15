@@ -137,7 +137,7 @@ class GMM_Prime(gmm.GMM):
         nb_max_steps = maxiter  # max iterations
         max_diff_ll = minstepsize  # max log-likelihood increase
 
-        nb_samples = data.shape[0]
+        nb_samples = data.shape[1]
 
         if not no_init:
             if random_init and not only_scikit:
@@ -166,12 +166,23 @@ class GMM_Prime(gmm.GMM):
             GAMMA2 = GAMMA / np.sum(GAMMA, axis=1)[:, np.newaxis]
 
             # M-step
-            self.mu = np.einsum('ac,ic->ai', GAMMA2, data)  # a states, c sample, i dim
 
-            dx = data[None, :] - self.mu[:, :, None]  # nb_dim, nb_states, nb_samples
 
-            self.sigma = np.einsum('acj,aic->aij', np.einsum('aic,ac->aci', dx, GAMMA2),
-                                   dx)  # a states, c sample, i-j dim
+            for i in xrange(self.nb_states):
+                # update priors
+                self.priors[i] = np.sum(GAMMA[i,:]) / self.nbData
+                self.mu[:, i] = data.T.dot(GAMMA2[i,:].reshape((-1,1))).T
+                mu = np.matlib.repmat(self.mu[:, i].reshape((-1, 1)), 1, self.nbData)
+                diff = (data.T - mu)
+                self.sigma[i] = data.T.dot(np.diag(GAMMA2[i,:])).dot(data) + np.eye(self.nb_dim) * self.reg;
+
+
+            # self.mu = np.einsum('ac,ic->ai', GAMMA2, data)  # a states, c sample, i dim
+            #
+            # dx = data[None, :] - self.mu[:, :, None]  # nb_dim, nb_states, nb_samples
+            #
+            # self.sigma = np.einsum('acj,aic->aij', np.einsum('aic,ac->aci', dx, GAMMA2),
+            #                        dx)  # a states, c sample, i-j dim
 
             # #self.sigma += self.reg
             #

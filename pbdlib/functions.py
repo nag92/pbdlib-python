@@ -187,7 +187,7 @@ def multi_variate_normal_old(x, mean, covar):
 
 	nbData = x.shape[1]
 	mu = np.matlib.repmat(mean.reshape((-1, 1)), 1, nbData)
-	diff = (x - mu).T
+	diff = (x - mu)
 
 	# Distinguish between multi and single variate distribution:
 	if n_vars > 1:
@@ -200,7 +200,18 @@ def multi_variate_normal_old(x, mean, covar):
 		scale = np.sqrt(np.power((2 * np.pi), n_vars) * covar + 1e-200)
 		p = diff * lambdadiff
 
-	return np.exp(-0.5 * p) / scale
+
+	prop = np.exp(-0.5 * p) / scale
+	return prop.T
+
+
+def gaussPDF(Data, Mu, Sigma):
+
+	nbData = Data.shape[1]
+	mu = np.matlib.repmat(Mu.reshape((-1, 1)), 1, nbData)
+	diff = (Data - mu).T
+
+
 
 def prod_gaussian(mu_1, sigma_1, mu_2, sigma_2):
 	prec_1 = np.linalg.inv(sigma_1)
