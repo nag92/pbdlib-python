@@ -177,25 +177,7 @@ class GMM_Prime(gmm.GMM):
                 self.sigma[i] = data.T.dot(np.diag(GAMMA2[i,:])).dot(data) + np.eye(self.nb_dim) * self.reg;
 
 
-            # self.mu = np.einsum('ac,ic->ai', GAMMA2, data)  # a states, c sample, i dim
-            #
-            # dx = data[None, :] - self.mu[:, :, None]  # nb_dim, nb_states, nb_samples
-            #
-            # self.sigma = np.einsum('acj,aic->aij', np.einsum('aic,ac->aci', dx, GAMMA2),
-            #                        dx)  # a states, c sample, i-j dim
-
-            # #self.sigma += self.reg
-            #
-            # if diag:
-            # 	self.sigma *= np.eye(self.nb_dim)
-            #
-            # if dep_mask is not None:
-            # 	self.sigma *= dep_mask
-
-            # print self.Sigma[:,u :, i]
-
-            # Update initial state probablility vector
-            self.priors = np.mean(GAMMA, axis=1)
+            # self.priors = np.mean(GAMMA, axis=1)
 
             LL[it] = np.mean(np.log(np.sum(L, axis=0)))
             # Check for convergence
@@ -320,6 +302,29 @@ class GMM_Prime(gmm.GMM):
         return -0.5 * np.einsum(eins_idx[0], dx, np.einsum(eins_idx[1], lmbda_, dx)) \
                - mu.shape[1] / 2. * np.log(2 * np.pi) - np.sum(
             np.log(sigma_chol_.diagonal(axis1=1, axis2=2)), axis=1)
+
+    def gmr(self, DataIn,  in_, out_):
+
+        nbData = np.shape(in_)
+        nbVarOut = len(in_)
+
+
+        MuTmp = np.zeros(nbVarOut, self.nb_states)
+        expData = np.zeros(nbVarOut, nbData)
+        expSigma = np.zeros(nbVarOut, nbVarOut, nbData)
+        H =  np.zeros(self.nb_states, nbData)
+        for t in xrange(nbData):
+
+            # calculate the activation weights
+            for i in xrange(self.nb_states):
+                H[i,t] = self.priors[i] * gaussPDF(DataIn[:, t], self.mu[in_, i], self.sigma[i] )
+
+            H[:, t] = H[:, t] / np.sum(H[:, t] + np.finfo(float).tiny)
+
+            for i in xrange(self.nb_states):
+		       MuTmp[:,i] = self.mu[out_, i] + self.Sigma(out_,in_,i) / model.Sigma(in,in,i) * (DataIn(:,t)-model.Mu(in,i));
+		       expData[:,t] = expData[:,t] + H(i,t) * MuTmp(:,i);
+
 
     def mu(self, value):
         self.nb_dim = value.shape[0]
