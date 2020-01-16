@@ -199,14 +199,14 @@ class GMM_Prime(gmm.GMM):
 
     def init_hmm_kbins(self, demos, dep=None, reg=1e-8, dep_mask=None):
         """
-		Init HMM by splitting each demos in K bins along time. Each K states of the HMM will
-		be initialized with one of the bin. It corresponds to a left-to-right HMM.
+        Init HMM by splitting each demos in K bins along time. Each K states of the HMM will
+        be initialized with one of the bin. It corresponds to a left-to-right HMM.
 
-		:param demos:	[list of np.array([nb_timestep, nb_dim])]
-		:param dep:
-		:param reg:		[float]
-		:return:
-		"""
+        :param demos:	[list of np.array([nb_timestep, nb_dim])]
+        :param dep:
+        :param reg:		[float]
+        :return:
+        """
 
         # delimit the cluster bins for first demonstration
         self.nb_dim = demos[0].shape[1]
@@ -276,17 +276,17 @@ class GMM_Prime(gmm.GMM):
     def mvn_pdf(self, x, reg=None):
         """
 
-		:param x: 			np.array([nb_samples, nb_dim])
-			samples
-		:param mu: 			np.array([nb_states, nb_dim])
-			mean vector
-		:param sigma_chol: 	np.array([nb_states, nb_dim, nb_dim])
-			cholesky decomposition of covariance matrices
-		:param lmbda: 		np.array([nb_states, nb_dim, nb_dim])
-			precision matrices
-		:return: 			np.array([nb_states, nb_samples])
-			log mvn
-		"""
+        :param x: 			np.array([nb_samples, nb_dim])
+            samples
+        :param mu: 			np.array([nb_states, nb_dim])
+            mean vector
+        :param sigma_chol: 	np.array([nb_states, nb_dim, nb_dim])
+            cholesky decomposition of covariance matrices
+        :param lmbda: 		np.array([nb_states, nb_dim, nb_dim])
+            precision matrices
+        :return: 			np.array([nb_states, nb_samples])
+            log mvn
+        """
         # if len(x.shape) > 1:  # TODO implement mvn for multiple xs
         # 	raise NotImplementedError
         mu, lmbda_, sigma_chol_ = self.mu, self.lmbda, self.sigma_chol
@@ -305,25 +305,30 @@ class GMM_Prime(gmm.GMM):
 
     def gmr(self, DataIn,  in_, out_):
 
-        nbData = np.shape(in_)
+        nbData = np.shape(in_)[0]
         nbVarOut = len(in_)
+        in_ = in_[0]
 
-
-        MuTmp = np.zeros(nbVarOut, self.nb_states)
-        expData = np.zeros(nbVarOut, nbData)
-        expSigma = np.zeros(nbVarOut, nbVarOut, nbData)
-        H =  np.zeros(self.nb_states, nbData)
+        MuTmp = np.zeros((nbVarOut, self.nb_states))
+        expData = np.zeros((nbVarOut, nbData))
+        expSigma = np.zeros( (nbVarOut, nbVarOut, nbData))
+        H =  np.zeros((self.nb_states, nbData))
         for t in xrange(nbData):
 
             # calculate the activation weights
             for i in xrange(self.nb_states):
-                H[i,t] = self.priors[i] * gaussPDF(DataIn[:, t], self.mu[in_, i], self.sigma[i] )
+                H[i,t] = self.priors[i] * multi_variate_normal_old(np.asarray([DataIn[t]]), self.mu[in_, i], self.sigma[i] )
 
             H[:, t] = H[:, t] / np.sum(H[:, t] + np.finfo(float).tiny)
 
             for i in xrange(self.nb_states):
-		       MuTmp[:,i] = self.mu[out_, i] + self.Sigma(out_,in_,i) / model.Sigma(in,in,i) * (DataIn(:,t)-model.Mu(in,i));
-		       expData[:,t] = expData[:,t] + H(i,t) * MuTmp(:,i);
+                MuTmp[:,i] = self.mu[out_,i] + self.sigma[i][out_, in_] /self.sigma[i][in_, in_] * ( DataIn[t] - self.mu[in_,i] )
+                expData[:,t] = expData[:,t] + H[i,t] + MuTmp[:,i]
+
+            for i in xrange(self.nb_states):
+                sigma_tmp = self.sigma[i][out_, out_] - self.sigma[i][out_, in_] / self.sigma[i][in_, in_] * self.sigma[i][in_, out_]
+
+
 
 
     def mu(self, value):

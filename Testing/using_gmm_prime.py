@@ -42,7 +42,7 @@ def getTraj(demos, samples):
         taux = taux + tau_[0].tolist()
         tauy = tauy + tau_[1].tolist()
     tau = np.vstack((sIn * samples, taux, tauy))
-    return tau
+    return tau, sIn
     # return tau
     #     tau.append(np.array(demos_))
 
@@ -56,10 +56,10 @@ if __name__ == "__main__":
     samples = 4
     datapath = os.path.dirname(pbd.__file__) + '/data/2Dletters/'
     data_in = loadmat(datapath + '%s.mat' % "G")
-
     demos = [d['pos'][0][0].T for d in data_in['demos'][0]] # cleaning matlab data
-    tau = getTraj(demos, samples=samples)
+    tau, sIn = getTraj(demos, samples=samples)
     gmm = pbd.GMM_Prime(nb_states=nb_states, nb_dim=3)
     gmm.init_params_kmeans(tau)
     gmm.em(tau, no_init=True)
+    gmm.gmr( sIn, [1], [2,3])
 

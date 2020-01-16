@@ -180,12 +180,12 @@ def multi_variate_normal_old(x, mean, covar):
 		n_vars = 1
 
 	# Check dimensions of data:
-	if x.ndim == 1 and n_vars == len(x):
-		n_data = 1
+	if x.ndim > 1 and n_vars == len(x):
+		nbData = x.shape[1]
 	else:
-		n_data = x.shape[0]
+		nbData = x.shape[0]
 
-	nbData = x.shape[1]
+	#nbData = x.shape[1]
 	mu = np.matlib.repmat(mean.reshape((-1, 1)), 1, nbData)
 	diff = (x - mu)
 
@@ -207,9 +207,10 @@ def multi_variate_normal_old(x, mean, covar):
 
 def gaussPDF(Data, Mu, Sigma):
 
-	nbData = Data.shape[1]
+	nbData = Data.shape[0]
 	mu = np.matlib.repmat(Mu.reshape((-1, 1)), 1, nbData)
 	diff = (Data - mu).T
+
 
 
 
