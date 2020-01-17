@@ -4,10 +4,8 @@
     <list default="true" id="f1b4986d-d99d-4c9a-8402-57f9e5620586" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Testing/using_gmm_prime.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/using_gmm_prime.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pbdlib/functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/pbdlib/functions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pbdlib/gmm_prime.py" beforeDir="false" afterPath="$PROJECT_DIR$/pbdlib/gmm_prime.py" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -56,19 +54,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="ignore_missing_gitignore" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunManager" selected="Python.using_gmm_prime">
     <configuration name="recreate_matlab" type="PythonConfigurationType" factoryName="Python" temporary="true">
@@ -186,6 +172,18 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -221,46 +219,46 @@
       <screen x="1080" y="0" width="1920" height="1080" />
     </state>
     <state x="1417" y="227" width="1235" height="650" key="#xdebugger.XInspectDialog/1080.0.1920.1080/0.27.1080.1893@1080.0.1920.1080" timestamp="1579115219601" />
-    <state x="1927" y="283" width="955" height="765" key="#xdebugger.evaluate" timestamp="1579117245062">
+    <state x="1808" y="398" width="955" height="346" key="#xdebugger.evaluate" timestamp="1579281984115">
       <screen x="1080" y="0" width="1920" height="1080" />
     </state>
-    <state x="1927" y="283" width="955" height="765" key="#xdebugger.evaluate/1080.0.1920.1080/0.27.1080.1893@1080.0.1920.1080" timestamp="1579117245062" />
-    <state width="1874" height="160" key="GridCell.Tab.0.bottom" timestamp="1579118182184">
+    <state x="1808" y="398" width="955" height="346" key="#xdebugger.evaluate/1080.0.1920.1080/0.27.1080.1893@1080.0.1920.1080" timestamp="1579281984115" />
+    <state width="1874" height="17" key="GridCell.Tab.0.bottom" timestamp="1579282000005">
       <screen x="1080" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="160" key="GridCell.Tab.0.bottom/1080.0.1920.1080/0.27.1080.1893@1080.0.1920.1080" timestamp="1579118182184" />
-    <state width="1874" height="160" key="GridCell.Tab.0.center" timestamp="1579118182184">
+    <state width="1874" height="17" key="GridCell.Tab.0.bottom/1080.0.1920.1080/0.27.1080.1893@1080.0.1920.1080" timestamp="1579282000005" />
+    <state width="1874" height="17" key="GridCell.Tab.0.center" timestamp="1579282000004">
       <screen x="1080" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="160" key="GridCell.Tab.0.center/1080.0.1920.1080/0.27.1080.1893@1080.0.1920.1080" timestamp="1579118182184" />
-    <state width="1874" height="160" key="GridCell.Tab.0.left" timestamp="1579118182184">
+    <state width="1874" height="17" key="GridCell.Tab.0.center/1080.0.1920.1080/0.27.1080.1893@1080.0.1920.1080" timestamp="1579282000004" />
+    <state width="1874" height="17" key="GridCell.Tab.0.left" timestamp="1579282000004">
       <screen x="1080" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="160" key="GridCell.Tab.0.left/1080.0.1920.1080/0.27.1080.1893@1080.0.1920.1080" timestamp="1579118182184" />
-    <state width="1874" height="160" key="GridCell.Tab.0.right" timestamp="1579118182184">
+    <state width="1874" height="17" key="GridCell.Tab.0.left/1080.0.1920.1080/0.27.1080.1893@1080.0.1920.1080" timestamp="1579282000004" />
+    <state width="1874" height="17" key="GridCell.Tab.0.right" timestamp="1579282000005">
       <screen x="1080" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="160" key="GridCell.Tab.0.right/1080.0.1920.1080/0.27.1080.1893@1080.0.1920.1080" timestamp="1579118182184" />
-    <state width="1874" height="530" key="GridCell.Tab.1.bottom" timestamp="1579117252362">
+    <state width="1874" height="17" key="GridCell.Tab.0.right/1080.0.1920.1080/0.27.1080.1893@1080.0.1920.1080" timestamp="1579282000005" />
+    <state width="1874" height="17" key="GridCell.Tab.1.bottom" timestamp="1579282000006">
       <screen x="1080" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="530" key="GridCell.Tab.1.bottom/1080.0.1920.1080/0.27.1080.1893@1080.0.1920.1080" timestamp="1579117252362" />
-    <state width="1874" height="530" key="GridCell.Tab.1.center" timestamp="1579117252362">
+    <state width="1874" height="17" key="GridCell.Tab.1.bottom/1080.0.1920.1080/0.27.1080.1893@1080.0.1920.1080" timestamp="1579282000006" />
+    <state width="1874" height="17" key="GridCell.Tab.1.center" timestamp="1579282000005">
       <screen x="1080" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="530" key="GridCell.Tab.1.center/1080.0.1920.1080/0.27.1080.1893@1080.0.1920.1080" timestamp="1579117252362" />
-    <state width="1874" height="530" key="GridCell.Tab.1.left" timestamp="1579117252362">
+    <state width="1874" height="17" key="GridCell.Tab.1.center/1080.0.1920.1080/0.27.1080.1893@1080.0.1920.1080" timestamp="1579282000005" />
+    <state width="1874" height="17" key="GridCell.Tab.1.left" timestamp="1579282000005">
       <screen x="1080" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="530" key="GridCell.Tab.1.left/1080.0.1920.1080/0.27.1080.1893@1080.0.1920.1080" timestamp="1579117252362" />
-    <state width="1874" height="530" key="GridCell.Tab.1.right" timestamp="1579117252362">
+    <state width="1874" height="17" key="GridCell.Tab.1.left/1080.0.1920.1080/0.27.1080.1893@1080.0.1920.1080" timestamp="1579282000005" />
+    <state width="1874" height="17" key="GridCell.Tab.1.right" timestamp="1579282000006">
       <screen x="1080" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="530" key="GridCell.Tab.1.right/1080.0.1920.1080/0.27.1080.1893@1080.0.1920.1080" timestamp="1579117252362" />
-    <state x="1521" y="188" key="SettingsEditor" timestamp="1578848880722">
+    <state width="1874" height="17" key="GridCell.Tab.1.right/1080.0.1920.1080/0.27.1080.1893@1080.0.1920.1080" timestamp="1579282000006" />
+    <state x="1521" y="188" key="SettingsEditor" timestamp="1579271851538">
       <screen x="1080" y="0" width="1920" height="1080" />
     </state>
-    <state x="1521" y="188" key="SettingsEditor/1080.0.1920.1080/0.27.1080.1893@1080.0.1920.1080" timestamp="1578848880722" />
+    <state x="1521" y="188" key="SettingsEditor/1080.0.1920.1080/0.27.1080.1893@1080.0.1920.1080" timestamp="1579271851538" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -271,9 +269,9 @@
           <option name="timeStamp" value="72" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/pbdlib/functions.py</url>
-          <line>182</line>
-          <option name="timeStamp" value="82" />
+          <url>file://$PROJECT_DIR$/pbdlib/gmm_prime.py</url>
+          <line>335</line>
+          <option name="timeStamp" value="92" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

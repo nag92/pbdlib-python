@@ -61,5 +61,5 @@ if __name__ == "__main__":
     gmm = pbd.GMM_Prime(nb_states=nb_states, nb_dim=3)
     gmm.init_params_kmeans(tau)
     gmm.em(tau, no_init=True)
-    gmm.gmr( sIn, [1], [2,3])
+    gmm.gmr( sIn, [1], [1,2])
 

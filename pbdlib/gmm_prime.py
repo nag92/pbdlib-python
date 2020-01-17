@@ -1,11 +1,8 @@
-import numpy as np
-from .model import *
-from .functions import multi_variate_normal
-from scipy.linalg import block_diag
-
 from termcolor import colored
-from .mvn import MVN
+
 import gmm
+from .model import *
+
 
 class GMM_Prime(gmm.GMM):
 
@@ -306,18 +303,24 @@ class GMM_Prime(gmm.GMM):
     def gmr(self, DataIn,  in_, out_):
 
         nbData = np.shape(in_)[0]
-        nbVarOut = len(in_)
+        nbVarOut = len(out_)
         in_ = in_[0]
 
         MuTmp = np.zeros((nbVarOut, self.nb_states))
         expData = np.zeros((nbVarOut, nbData))
-        expSigma = np.zeros( (nbVarOut, nbVarOut, nbData))
-        H =  np.zeros((self.nb_states, nbData))
+        expSigma = []
+        for i in xrange(nbData):
+            expSigma.append(np.zeros((nbVarOut, nbVarOut)))
+
+        H = np.zeros((self.nb_states, nbData))
         for t in xrange(nbData):
 
             # calculate the activation weights
             for i in xrange(self.nb_states):
-                H[i,t] = self.priors[i] * multi_variate_normal_old(np.asarray([DataIn[t]]), self.mu[in_, i], self.sigma[i] )
+                d = np.asarray([DataIn[t]])
+                m = self.mu[in_][i]
+                s = self.sigma[i][in_,in_]
+                H[i,t] = self.priors[i] * multi_variate_normal_old(d,m,s)
 
             H[:, t] = H[:, t] / np.sum(H[:, t] + np.finfo(float).tiny)
 
@@ -326,9 +329,13 @@ class GMM_Prime(gmm.GMM):
                 expData[:,t] = expData[:,t] + H[i,t] + MuTmp[:,i]
 
             for i in xrange(self.nb_states):
-                sigma_tmp = self.sigma[i][out_, out_] - self.sigma[i][out_, in_] / self.sigma[i][in_, in_] * self.sigma[i][in_, out_]
+                sigma_tmp = self.sigma[i][out_[0]:(out_[-1]+1), out_[0]:(out_[-1]+1)] - \
+                            self.sigma[i][out_, in_] / self.sigma[i][in_, in_] * self.sigma[i][in_, out_]
+                expSigma[t] = expSigma[t] + H[i, t] * (sigma_tmp + MuTmp[:, i].reshape((-1,1)) * MuTmp[:, i].T)
 
+            expSigma[t] = expSigma[t] - expData[:, t] * expData[:, t].T + np.eye(nbVarOut) * 1E-8
 
+        return expData, expSigma, H
 
 
     def mu(self, value):
