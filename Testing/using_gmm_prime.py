@@ -14,11 +14,10 @@ def getTraj(demos, samples):
     kp = 50.0
     kv = (2.0 * kp) ** 0.5
     alpha = 1.0
-    x = []
-    dx = []
-    ddx = []
+    x_ = None
+    dx_ = None
+    ddx_ = None
     sIn = []
-    tau = []
     taux = []
     tauy = []
 
@@ -39,10 +38,22 @@ def getTraj(demos, samples):
         goals = np.matlib.repmat(goal, nbData, 1)
         tau_ = ddx - (kp * (goals.transpose() - x)) / sIn + (kv * dx) / sIn
         #demos_ = [[s, x_, y_ ] for s, x_, y_ in zip(sIn, tau_[0].tolist(), tau_[1].tolist() )]
+        print x.tolist()
+        if x_ is not None:
+            x_ = x_ + x.tolist()
+            dx_ = dx_ + dx.tolist()
+            ddx_ = ddx_ + ddx.tolist()
+        else:
+            x_ = x.tolist()
+            dx_ = dx.tolist()
+            ddx_ = ddx.tolist()
+
         taux = taux + tau_[0].tolist()
         tauy = tauy + tau_[1].tolist()
     tau = np.vstack((sIn * samples, taux, tauy))
-    return tau, sIn
+    motion = np.vstack((x_, dx_, ddx_))
+    print "motion ", motion
+    return tau, motion, sIn
     # return tau
     #     tau.append(np.array(demos_))
 
@@ -57,9 +68,35 @@ if __name__ == "__main__":
     datapath = os.path.dirname(pbd.__file__) + '/data/2Dletters/'
     data_in = loadmat(datapath + '%s.mat' % "G")
     demos = [d['pos'][0][0].T for d in data_in['demos'][0]] # cleaning matlab data
-    tau, sIn = getTraj(demos, samples=samples)
+    tau, motion, sIn = getTraj(demos, samples=samples)
     gmm = pbd.GMM_Prime(nb_states=nb_states, nb_dim=3)
     gmm.init_params_kmeans(tau)
     gmm.em(tau, no_init=True)
-    gmm.gmr( sIn, [1], [1,2])
+    expData, expSigma, H = gmm.gmr( sIn, [1], [1,2])
+
+    x = motion[0:2, 0].reshape((-1,1))
+    dx = np.array([[0.0],[0.0]])
+    L = np.append(np.eye(2) * 50.0, np.eye(2) * 10.0,1)
+    xTar = np.array([ [ 0.1093],[ -0.5052]  ])
+
+    my_x = []
+    my_y = []
+    for i in xrange(200):
+        x_ = np.append( xTar-x ,  -dx ).reshape(((-1,1)))
+        ddx = L.dot(x_) + (expData[:,i]*sIn[i]).reshape((-1,1))
+        dx = dx + ddx * 0.01
+        x = x + dx * 0.01
+        my_x.append(x[0])
+        my_y.append(x[1])
+
+
+    plt.plot(my_x, my_y)
+    plt.show()
+        #print dxx
+
+
+
+
+
+
 

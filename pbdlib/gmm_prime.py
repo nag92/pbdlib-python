@@ -40,7 +40,8 @@ class GMM_Prime(gmm.GMM):
         idTmp = np.random.permutation(self.nbData)
 
         # Mu = Data[:, idTmp[:nbStates]]
-        Mu = data[:, idTmp[:self.nb_states]]
+        #Mu = data[:, idTmp[:self.nb_states]]
+        Mu = data[:, :5]
         searching = True
         distTmp = np.zeros((self.nb_states, len(data[0])))
         idList = []
@@ -302,7 +303,7 @@ class GMM_Prime(gmm.GMM):
 
     def gmr(self, DataIn,  in_, out_):
 
-        nbData = np.shape(in_)[0]
+        nbData = np.shape(DataIn)[0]
         nbVarOut = len(out_)
         in_ = in_[0]
 
@@ -317,17 +318,16 @@ class GMM_Prime(gmm.GMM):
 
             # calculate the activation weights
             for i in xrange(self.nb_states):
-                d = np.asarray([DataIn[t]])
-                m = self.mu[in_][i]
-                s = self.sigma[i][in_,in_]
-                H[i,t] = self.priors[i] * multi_variate_normal_old(d,m,s)
+                H[i,t] = self.priors[i] * multi_variate_normal_old(np.asarray([DataIn[t]]),
+                                                                   self.mu[in_][i],
+                                                                   self.sigma[i][in_,in_])
 
             H[:, t] = H[:, t] / np.sum(H[:, t] + np.finfo(float).tiny)
-
+            # Compute conditional means
             for i in xrange(self.nb_states):
                 MuTmp[:,i] = self.mu[out_,i] + self.sigma[i][out_, in_] /self.sigma[i][in_, in_] * ( DataIn[t] - self.mu[in_,i] )
                 expData[:,t] = expData[:,t] + H[i,t] + MuTmp[:,i]
-
+            # Compute conditional covariances
             for i in xrange(self.nb_states):
                 sigma_tmp = self.sigma[i][out_[0]:(out_[-1]+1), out_[0]:(out_[-1]+1)] - \
                             self.sigma[i][out_, in_] / self.sigma[i][in_, in_] * self.sigma[i][in_, out_]
