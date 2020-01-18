@@ -59,25 +59,25 @@ if __name__ == "__main__":
     gmm.init_hmm_kbins(tau)
     gmm.em(np.array(tau), reg=1e-8)
     # plotting demos
-    fig, ax = plt.subplots(ncols=3)
-    fig.set_size_inches(7.5, 2.8)
-    plt.tight_layout()
-    # use dim for selecting dimensions of GMM to plot
-    for p_in in demos:
-        ax[0].plot(p_in[:, 0], p_in[:, 1])
-
-    pbd.plot_gmm(gmm.mu, gmm.sigma, ax=ax[0], dim=[0, 1]);
-    n = 0
-
-    resp_gmm = gmm.compute_resp(demos[0], marginal=slice(0, 2))
-
-    fig, ax = plt.subplots(nrows=3)
-    fig.set_size_inches(7.5, 3.6)
-
-    ax[0].plot(resp_gmm.T, lw=1);
-
-
-    [ax[i].set_ylim([-0.2, 1.2]) for i in range(3)]
-    plt.xlabel('timestep');
-    plt.tight_layout()
-    plt.show()
+    # fig, ax = plt.subplots(ncols=3)
+    # fig.set_size_inches(7.5, 2.8)
+    # plt.tight_layout()
+    # # use dim for selecting dimensions of GMM to plot
+    # for p_in in demos:
+    #     ax[0].plot(p_in[:, 0], p_in[:, 1])
+    #
+    # pbd.plot_gmm(gmm.mu, gmm.sigma, ax=ax[0], dim=[0, 1]);
+    # n = 0
+    #
+    # resp_gmm = gmm.compute_resp(demos[0], marginal=slice(0, 2))
+    #
+    # fig, ax = plt.subplots(nrows=3)
+    # fig.set_size_inches(7.5, 3.6)
+    #
+    # ax[0].plot(resp_gmm.T, lw=1);
+    #
+    #
+    # [ax[i].set_ylim([-0.2, 1.2]) for i in range(3)]
+    # plt.xlabel('timestep');
+    # plt.tight_layout()
+    # plt.show()

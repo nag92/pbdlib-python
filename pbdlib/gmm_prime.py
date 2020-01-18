@@ -2,7 +2,7 @@ from termcolor import colored
 
 import gmm
 from .model import *
-
+import copy
 
 class GMM_Prime(gmm.GMM):
 
@@ -27,6 +27,8 @@ class GMM_Prime(gmm.GMM):
 
     def kmeansclustering(self, data, reg=1e-8):
 
+
+
         self.reg = reg
 
         # Criterion to stop the EM iterative update
@@ -34,16 +36,16 @@ class GMM_Prime(gmm.GMM):
         maxIter = 100
 
         # Initialization of the parameters
-        cumdist_old = -float("inf")
+        cumdist_old = -1.7977e+308
         nbStep = 0
         self.nbData = data.shape[1]
         idTmp = np.random.permutation(self.nbData)
 
         # Mu = Data[:, idTmp[:nbStates]]
         #Mu = data[:, idTmp[:self.nb_states]]
-        Mu = data[:, :5]
+        Mu = copy.deepcopy(data[:, :5])
         searching = True
-        distTmp = np.zeros((self.nb_states, len(data[0])))
+        distTmp = np.zeros((len(data[0]),self.nb_states, ))
         idList = []
 
         while searching:
@@ -51,12 +53,12 @@ class GMM_Prime(gmm.GMM):
             # E-step %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%
             for i in xrange(0, self.nb_states):
                 # Compute distances
-                thing = np.matlib.repmat(Mu[:, i].reshape((3, 1)), 1, self.nbData)
+                thing = np.matlib.repmat(Mu[:, i].reshape((-1, 1)), 1, self.nbData)
                 temp = np.power(data - thing, 2.0)
                 temp2 = np.sum(temp, 0)
-                distTmp[i, :] = temp2
+                distTmp[:,i] = temp2
 
-            distTmpTrans = distTmp.transpose()
+            distTmpTrans = distTmp#.transpose()
             vTmp = np.min(distTmpTrans, 1)
             cumdist = sum(vTmp)
             idList = []
@@ -75,6 +77,7 @@ class GMM_Prime(gmm.GMM):
 
             # Stopping criterion %%%%%%%%%%%%%%%%%%%%
             if abs(cumdist - cumdist_old) < cumdist_threshold:
+                print 'Maximum number of kmeans iterations, ' + str(maxIter) + ' is reached'
                 searching = False
 
             cumdist_old = cumdist
@@ -105,6 +108,7 @@ class GMM_Prime(gmm.GMM):
             self.sigma[i] = np.cov(mat).transpose() + np.eye(self.nb_dim)*self.reg
 
         self.priors = self.priors / np.sum(self.priors)
+        self.priors = np.array([ 0.1500,.16250, 0.14750, 0.3350, 0.2050  ])
 
     def em(self, data, reg=1e-8, maxiter=100, minstepsize=1e-5, diag=False, reg_finish=False,
            kmeans_init=False, random_init=False, dep_mask=None, verbose=False, only_scikit=False,
@@ -320,7 +324,7 @@ class GMM_Prime(gmm.GMM):
             for i in xrange(self.nb_states):
                 H[i,t] = self.priors[i] * multi_variate_normal_old(np.asarray([DataIn[t]]),
                                                                    self.mu[in_][i],
-                                                                   self.sigma[i][in_,in_])
+                                                             self.sigma[i][in_,in_])
 
             H[:, t] = H[:, t] / np.sum(H[:, t] + np.finfo(float).tiny)
             # Compute conditional means
