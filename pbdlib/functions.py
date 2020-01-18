@@ -191,19 +191,18 @@ def multi_variate_normal_old(x, mean, covar):
 
 	# Distinguish between multi and single variate distribution:
 	if n_vars > 1:
-		lambdadiff = np.linalg.inv(covar).dot(diff)
+		lambdadiff = np.linalg.inv(covar).dot(diff)*diff
 		scale = np.sqrt(
-			np.power((2 * np.pi), n_vars) * (abs(np.linalg.det(covar)) + 1e-200))
-		p = np.sum(diff * lambdadiff, 0)
+			np.power((2 * np.pi), n_vars) * (abs(np.linalg.det(covar)) + 2.2251e-308))
+		p = np.sum(lambdadiff, 0)
 	else:
 		lambdadiff = diff / covar
-		scale = np.sqrt(np.power((2 * np.pi), n_vars) * covar + 1e-200)
+		scale = np.sqrt(np.power((2 * np.pi), n_vars) * covar + 2.2251e-308)
 		p = diff * lambdadiff
 
 
 	prop = np.exp(-0.5 * p) / scale
 	return prop.T
-
 
 def gaussPDF(Data, Mu, Sigma):
 

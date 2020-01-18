@@ -104,11 +104,12 @@ class GMM_Prime(gmm.GMM):
 
             idtmp = np.where(idList==i)
             mat = np.vstack((data[:, idtmp][0][0], data[:, idtmp][1][0], data[:, idtmp][2][0]))
-            self.priors[i] = len(idtmp)
+            self.priors[i] = len(idtmp[0])
+            sig = np.cov(mat).transpose()
             self.sigma[i] = np.cov(mat).transpose() + np.eye(self.nb_dim)*self.reg
 
         self.priors = self.priors / np.sum(self.priors)
-        self.priors = np.array([ 0.1500,.16250, 0.14750, 0.3350, 0.2050  ])
+        #self.priors = np.array([ 0.1500,.16250, 0.14750, 0.3350, 0.2050  ])
 
     def em(self, data, reg=1e-8, maxiter=100, minstepsize=1e-5, diag=False, reg_finish=False,
            kmeans_init=False, random_init=False, dep_mask=None, verbose=False, only_scikit=False,
@@ -137,7 +138,7 @@ class GMM_Prime(gmm.GMM):
 
         nb_min_steps = 5  # min num iterations
         nb_max_steps = maxiter  # max iterations
-        max_diff_ll = minstepsize  # max log-likelihood increase
+
 
         nb_samples = data.shape[1]
 
@@ -154,9 +155,11 @@ class GMM_Prime(gmm.GMM):
 
         if only_scikit: return
         data = data.T
-
+        searching = True
         LL = np.zeros(nb_max_steps)
-        for it in range(nb_max_steps):
+        it = 0
+        GAMMA = None
+        while searching:
 
             # E - step
             L = np.zeros((self.nb_states, nb_samples))
@@ -168,34 +171,23 @@ class GMM_Prime(gmm.GMM):
             GAMMA2 = GAMMA / np.sum(GAMMA, axis=1)[:, np.newaxis]
 
             # M-step
-
-
             for i in xrange(self.nb_states):
                 # update priors
                 self.priors[i] = np.sum(GAMMA[i,:]) / self.nbData
                 self.mu[:, i] = data.T.dot(GAMMA2[i,:].reshape((-1,1))).T
                 mu = np.matlib.repmat(self.mu[:, i].reshape((-1, 1)), 1, self.nbData)
                 diff = (data.T - mu)
-                self.sigma[i] = data.T.dot(np.diag(GAMMA2[i,:])).dot(data) + np.eye(self.nb_dim) * self.reg;
-
+                self.sigma[i] = diff.dot(np.diag(GAMMA2[i,:])).dot(diff.T) + np.eye(self.nb_dim) * self.reg;
 
             # self.priors = np.mean(GAMMA, axis=1)
 
-            LL[it] = np.mean(np.log(np.sum(L, axis=0)))
+            LL[it] = np.sum(np.log(np.sum(L, axis=0)))/self.nbData
             # Check for convergence
             if it > nb_min_steps:
-                if LL[it] - LL[it - 1] < max_diff_ll:
-                    if reg_finish is not False:
-                        self.sigma = np.einsum(
-                            'acj,aic->aij', np.einsum('aic,ac->aci', dx, GAMMA2), dx) + reg_finish
+                if LL[it] - LL[it - 1] < 1.0000e-04 or it == (100 - 1):
+                    searching = False
 
-                    if verbose:
-                        print(colored('Converged after %d iterations: %.3e' % (it, LL[it]), 'red', 'on_white'))
-                    return GAMMA
-        if verbose:
-            print(
-                "GMM did not converge before reaching max iteration. Consider augmenting the number of max iterations.")
-
+            it += 1
         return GAMMA
 
 
@@ -324,17 +316,22 @@ class GMM_Prime(gmm.GMM):
             for i in xrange(self.nb_states):
                 H[i,t] = self.priors[i] * multi_variate_normal_old(np.asarray([DataIn[t]]),
                                                                    self.mu[in_][i],
-                                                             self.sigma[i][in_,in_])
+                                                                   self.sigma[i][in_, in_])
 
             H[:, t] = H[:, t] / np.sum(H[:, t] + np.finfo(float).tiny)
             # Compute conditional means
             for i in xrange(self.nb_states):
-                MuTmp[:,i] = self.mu[out_,i] + self.sigma[i][out_, in_] /self.sigma[i][in_, in_] * ( DataIn[t] - self.mu[in_,i] )
+                MuTmp[:,i] = self.mu[out_,i] + self.sigma[i][out_, in_] / \
+                             self.sigma[i][in_, in_] * \
+                             ( DataIn[t] - self.mu[in_,i] )
+
                 expData[:,t] = expData[:,t] + H[i,t] + MuTmp[:,i]
+
             # Compute conditional covariances
             for i in xrange(self.nb_states):
                 sigma_tmp = self.sigma[i][out_[0]:(out_[-1]+1), out_[0]:(out_[-1]+1)] - \
                             self.sigma[i][out_, in_] / self.sigma[i][in_, in_] * self.sigma[i][in_, out_]
+
                 expSigma[t] = expSigma[t] + H[i, t] * (sigma_tmp + MuTmp[:, i].reshape((-1,1)) * MuTmp[:, i].T)
 
             expSigma[t] = expSigma[t] - expData[:, t] * expData[:, t].T + np.eye(nbVarOut) * 1E-8
