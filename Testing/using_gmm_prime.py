@@ -88,7 +88,7 @@ if __name__ == "__main__":
     gmm.sigma[3] = sig[:, 9:12]
     gmm.sigma[4] = sig[:, 12:15]
 
-    expData, expSigma, H = gmm.gmr( sIn, [1], [1,2])
+    expData, expSigma, H = gmm.gmr( sIn, [0], [1,2])
 
     x = motion[0:2, 0].reshape((-1,1))
     dx = np.array([[0.0],[0.0]])

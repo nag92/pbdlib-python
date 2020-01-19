@@ -310,24 +310,24 @@ class GMM_Prime(gmm.GMM):
             expSigma.append(np.zeros((nbVarOut, nbVarOut)))
 
         H = np.zeros((self.nb_states, nbData))
+
         for t in xrange(nbData):
 
-            # calculate the activation weights
             for i in xrange(self.nb_states):
-                H[i,t] = self.priors[i] * multi_variate_normal_old(np.asarray([DataIn[t]]),
-                                                                   self.mu[in_][i],
-                                                                   self.sigma[i][in_, in_])
+                H[i, t] = self.priors[i] * multi_variate_normal_old(np.asarray([DataIn[t]]),
+                                                                    self.mu[in_][i],
+                                                                    self.sigma[i][in_, in_])
 
             H[:, t] = H[:, t] / np.sum(H[:, t] + np.finfo(float).tiny)
-            # Compute conditional means
+
+
             for i in xrange(self.nb_states):
-                MuTmp[:,i] = self.mu[out_,i] + self.sigma[i][out_, in_] / \
-                             self.sigma[i][in_, in_] * \
-                             ( DataIn[t] - self.mu[in_,i] )
+                MuTmp[:, i] = self.mu[out_, i] + self.sigma[i][out_, in_] / \
+                              self.sigma[i][in_, in_] * \
+                              (DataIn[t] - self.mu[in_, i])
 
-                expData[:,t] = expData[:,t] + H[i,t] + MuTmp[:,i]
+                expData[:, t] = expData[:, t] + H[i, t] * MuTmp[:, i]
 
-            # Compute conditional covariances
             for i in xrange(self.nb_states):
                 sigma_tmp = self.sigma[i][out_[0]:(out_[-1]+1), out_[0]:(out_[-1]+1)] - \
                             self.sigma[i][out_, in_] / self.sigma[i][in_, in_] * self.sigma[i][in_, out_]
