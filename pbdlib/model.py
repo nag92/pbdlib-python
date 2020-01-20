@@ -9,7 +9,7 @@ class Model(object):
 	Model (HSMM), Product of Gaussian mixture model (PoGMM)
 	"""
 
-	def __init__(self, nb_states, nb_dim=3):
+	def __init__(self, nb_states, nb_dim=2):
 		self._priors = None
 		self.nb_dim = nb_dim
 		self.nb_states = nb_states
@@ -22,7 +22,7 @@ class Model(object):
 		self._eta = None
 
 		self._reg = None
-
+		self.nb_dim = nb_dim
 
 		self._has_finish_state = False
 		self._has_init_state = False
@@ -80,7 +80,6 @@ class Model(object):
 		elif isinstance(value, np.ndarray):
 			self._reg = value
 		elif isinstance(value, float):
-			print self.nb_dim
 			self._reg = value ** 2 * np.eye(self.nb_dim)
 		else:
 			raise ValueError('Regularization should be of type float, ndarray or list')
