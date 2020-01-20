@@ -69,17 +69,12 @@ if __name__ == "__main__":
     data_in = loadmat(datapath + '%s.mat' % "G")
     demos = [d['pos'][0][0].T for d in data_in['demos'][0]] # cleaning matlab data
     tau, motion, sIn = getTraj(demos, samples=samples)
+
     gmm = pbd.GMM_Prime(nb_states=nb_states, nb_dim=3)
-    #
-    # tau = np.genfromtxt("myFile.csv",delimiter=',')
-    # mu = np.genfromtxt("mu.csv", delimiter=',')
-    # prior = np.genfromtxt("priors.csv", delimiter=',')
-    # sig = np.genfromtxt("sigma.csv", delimiter=',')
+
     gmm.init_params_kmeans(tau)
 
     gmm.em(tau, no_init=True)
-
-
     expData, expSigma, H = gmm.gmr( sIn, [0], [1,2])
 
     x = motion[0:2, 0].reshape((-1,1))

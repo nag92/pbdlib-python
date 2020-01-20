@@ -43,7 +43,7 @@ class GMM_Prime(gmm.GMM):
 
         # Mu = Data[:, idTmp[:nbStates]]
         #Mu = data[:, idTmp[:self.nb_states]]
-        Mu = copy.deepcopy(data[:, :5])
+        Mu = copy.deepcopy(data[:, idTmp[:self.nb_states]])
         searching = True
         distTmp = np.zeros((len(data[0]),self.nb_states, ))
         idList = []
