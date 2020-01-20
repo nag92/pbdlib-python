@@ -8,12 +8,12 @@ from .mvn import MVN
 
 
 class GMM(Model):
-	def __init__(self, nb_states=1, nb_dim=3, init_zeros=False, mu=None, lmbda=None, sigma=None, priors=None):
-		# if mu is not None:
-		# 	nb_states = mu.shape[0]
-		# 	nb_dim = mu.shape[-1]
+	def __init__(self, nb_states=1, nb_dim=None, init_zeros=False, mu=None, lmbda=None, sigma=None, priors=None):
+		if mu is not None:
+			nb_states = mu.shape[0]
+			nb_dim = mu.shape[-1]
 
-		Model.__init__(self, nb_states=nb_states, nb_dim=nb_dim)
+		Model.__init__(self, nb_states, nb_dim)
 		# flag to indicate that publishing was not init
 		self.publish_init = False
 
@@ -273,8 +273,8 @@ class GMM(Model):
 		self.priors = np.ones(self.nb_states) / self.nb_states
 
 	def em(self, data, reg=1e-8, maxiter=100, minstepsize=1e-5, diag=False, reg_finish=False,
-		   kmeans_init=False, random_init=False, dep_mask=None, verbose=False, only_scikit=False,
-		    no_init=True):
+		   kmeans_init=False, random_init=True, dep_mask=None, verbose=False, only_scikit=False,
+		    no_init=False):
 		"""
 
 		:param data:	 		[np.array([nb_timesteps, nb_dim])]
@@ -325,26 +325,29 @@ class GMM(Model):
 			L_log = np.zeros((self.nb_states, nb_samples))
 
 			for i in range(self.nb_states):
-				L_log[i, :] = np.log(self.priors[i]) + multi_variate_normal(data.T, self.mu[:,i], self.sigma[i], log=True)
+				L_log[i, :] = np.log(self.priors[i]) + multi_variate_normal(data.T, self.mu[i],
+												   self.sigma[i], log=True)
 
 			L = np.exp(L_log)
 			GAMMA = L / np.sum(L, axis=0)
 			GAMMA2 = GAMMA / np.sum(GAMMA, axis=1)[:, np.newaxis]
 
 			# M-step
-			self.mu = np.einsum('ac,ic->ai', GAMMA2, data)  # a states, c sample, i dim
+			self.mu = np.einsum('ac,ic->ai', GAMMA2,
+									data)  # a states, c sample, i dim
 
 			dx = data[None, :] - self.mu[:, :, None]  # nb_dim, nb_states, nb_samples
 
-			self.sigma = np.einsum('acj,aic->aij', np.einsum('aic,ac->aci', dx, GAMMA2), dx)  # a states, c sample, i-j dim
+			self.sigma = np.einsum('acj,aic->aij', np.einsum('aic,ac->aci', dx, GAMMA2),
+									   dx)  # a states, c sample, i-j dim
 
-			# #self.sigma += self.reg
-			#
-			# if diag:
-			# 	self.sigma *= np.eye(self.nb_dim)
-			#
-			# if dep_mask is not None:
-			# 	self.sigma *= dep_mask
+			self.sigma += self.reg
+
+			if diag:
+				self.sigma *= np.eye(self.nb_dim)
+
+			if dep_mask is not None:
+				self.sigma *= dep_mask
 
 			# print self.Sigma[:,u :, i]
 
@@ -365,9 +368,6 @@ class GMM(Model):
 					return GAMMA
 		if verbose:
 			print("GMM did not converge before reaching max iteration. Consider augmenting the number of max iterations.")
-
-
-
 		return GAMMA
 
 
