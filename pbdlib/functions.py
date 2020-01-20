@@ -43,8 +43,6 @@ def spline(x, Y, xx, kind='cubic'):
 	if Y.ndim == 1:
 		return interp1d(x, Y, kind=kind)(xx)
 	F = [interp1d(x, Y[:,i]) for i in range(Y.shape[1])]
-	print len(Y[:,1])
-	print len(Y[:, 0])
 	return np.vstack([f(xx) for f in F])
 
 
@@ -211,8 +209,6 @@ def gaussPDF(Data, Mu, Sigma):
 	diff = (Data - mu).T
 
 
-
-
 def prod_gaussian(mu_1, sigma_1, mu_2, sigma_2):
 	prec_1 = np.linalg.inv(sigma_1)
 	prec_2 = np.linalg.inv(sigma_2)
@@ -313,7 +309,7 @@ def multi_variate_t(x, nu, mu, sigma=None, log=True, gmm=False, lmbda=None):
 		raise NotImplementedError
 
 
-def multi_variate_normal(x, mu, sigma=None, log=True, gmm=False, lmbda=None ):
+def multi_variate_normal(x, mu, sigma=None, log=True, gmm=False, lmbda=None):
 	"""
 	Multivariatve normal distribution PDF
 
@@ -331,11 +327,9 @@ def multi_variate_normal(x, mu, sigma=None, log=True, gmm=False, lmbda=None ):
 		if sigma is not None:
 			sigma = sigma[None, None] if sigma.shape == () else sigma
 
-		nbData = x.shape[1]
-
 		mu = mu[None] if mu.shape == () else mu
 		x = x[:, None] if x.ndim == 1 else x
-		mu = np.matlib.repmat(mu.reshape((3, 1)), 1, nbData)
+
 		dx = mu - x
 		lmbda_ = np.linalg.inv(sigma) if lmbda is None else lmbda
 
