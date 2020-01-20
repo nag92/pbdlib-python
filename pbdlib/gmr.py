@@ -199,7 +199,8 @@ class GMR():
 
 		# 0.1 ms for get_pdf
 		for i in range(self.gmm.n_components):
-			prob[i] = self.get_pdf(i, sample, has_changed=has_changed) * self.gmm.weights_[i]
+			prob[i] = self.get_pdf(i, sample, has_changed=has_changed) * self.gmm.weights_[
+				i]
 
 		try:
 			beta = prob / np.sum(prob)
@@ -454,7 +455,8 @@ class GMR():
 
 			if variance_type == 'full':
 				# see course ML : nonlinearRegression.pdf
-				SigmaOut = SigmaOut + beta[i] * self.SigmaOutTmp[i] - (beta[ i] * MuOutTmp) ** 2
+				SigmaOut = SigmaOut + beta[i] * self.SigmaOutTmp[i] - (beta[
+																		   i] * MuOutTmp) ** 2
 
 			else:
 				SigmaOut = SigmaOut + beta[i] * self.SigmaOutTmp[i]

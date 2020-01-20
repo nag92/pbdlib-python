@@ -165,7 +165,7 @@ class GMM_Prime(gmm.GMM):
             L = np.zeros((self.nb_states, nb_samples))
 
             for i in range(self.nb_states):
-                L [i, :] = self.priors[i] * multi_variate_normal_old(data.T, self.mu[:, i], self.sigma[i])
+                L [i, :] = self.priors[i] * gaussPDF(data.T, self.mu[:, i], self.sigma[i])
 
             GAMMA = L / np.sum(L, axis=0)
             GAMMA2 = GAMMA / np.sum(GAMMA, axis=1)[:, np.newaxis]
