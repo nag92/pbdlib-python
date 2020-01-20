@@ -178,6 +178,42 @@ def multi_variate_normal_old(x, mean, covar):
 		n_vars = 1
 
 	# Check dimensions of data:
+	if x.ndim == 1 and n_vars == len(x):
+		n_data = 1
+	else:
+		n_data = x.shape[0]
+
+	diff = (x - mean).T
+
+	# Distinguish between multi and single variate distribution:
+	if n_vars > 1:
+		lambdadiff = np.linalg.inv(covar).dot(diff)
+		scale = np.sqrt(
+			np.power((2 * np.pi), n_vars) * (abs(np.linalg.det(covar)) + 1e-200))
+		p = np.sum(diff * lambdadiff, 0)
+	else:
+		lambdadiff = diff / covar
+		scale = np.sqrt(np.power((2 * np.pi), n_vars) * covar + 1e-200)
+		p = diff * lambdadiff
+
+	return np.exp(-0.5 * p) / scale
+
+def gaussPDF(x, mean, covar):
+	'''Multi-variate normal distribution
+
+	x: [n_data x n_vars] matrix of data_points for which to evaluate
+	mean: [n_vars] vector representing the mean of the distribution
+	covar: [n_vars x n_vars] matrix representing the covariance of the distribution
+
+	'''
+
+	# Check dimensions of covariance matrix:
+	if type(covar) is np.ndarray:
+		n_vars = covar.shape[0]
+	else:
+		n_vars = 1
+
+	# Check dimensions of data:
 	if x.ndim > 1 and n_vars == len(x):
 		nbData = x.shape[1]
 	else:
@@ -201,13 +237,6 @@ def multi_variate_normal_old(x, mean, covar):
 
 	prop = np.exp(-0.5 * p) / scale
 	return prop.T
-
-def gaussPDF(Data, Mu, Sigma):
-
-	nbData = Data.shape[0]
-	mu = np.matlib.repmat(Mu.reshape((-1, 1)), 1, nbData)
-	diff = (Data - mu).T
-
 
 def prod_gaussian(mu_1, sigma_1, mu_2, sigma_2):
 	prec_1 = np.linalg.inv(sigma_1)
