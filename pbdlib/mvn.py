@@ -4,7 +4,7 @@ import sys
 from .utils.gaussian_utils import gaussian_conditioning
 from .functions import mvn_pdf
 from .functions import multi_variate_normal
-import pbdlib as pbd
+from pbdlib import GMM
 
 class MVN(object):
 	def __init__(self, mu=None, sigma=None, lmbda=None, lmbda_ns=None, sigma_cv=None, nb_dim=2):
@@ -202,7 +202,7 @@ class MVN(object):
 		if data.ndim == 1:
 			conditional_mvn = type(self)(mu=mu[0], sigma=sigma[0])
 		else:
-			conditional_mvn = pbd.GMM()
+			conditional_mvn = GMM()
 			conditional_mvn.mu, conditional_mvn.sigma = mu, sigma
 
 		return conditional_mvn
