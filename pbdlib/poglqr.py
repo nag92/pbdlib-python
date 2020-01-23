@@ -1,6 +1,5 @@
 import numpy as np
 from .utils.utils import lifted_transfer_matrix
-import pbdlib as pbd
 
 
 class LQR(object):
