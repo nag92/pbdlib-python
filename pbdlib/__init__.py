@@ -2,7 +2,6 @@ from .functions import *
 
 from .gmm import GMM
 from .gmr import GMR
-from .gmm_prime import GMM_Prime
 from .hmm import HMM
 from .hsmm import HSMM
 from .model import Model
