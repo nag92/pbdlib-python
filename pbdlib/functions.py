@@ -41,8 +41,8 @@ def spline(x, Y, xx, kind='cubic'):
 	''' Attempts to imitate the matlab version of spline'''
 	from scipy.interpolate import interp1d
 	if Y.ndim == 1:
-		return interp1d(x, Y, kind=kind)(xx)
-	F = [interp1d(x, Y[:,i]) for i in range(Y.shape[1])]
+		return interp1d(x, Y, kind=kind)[xx]
+	F = [interp1d(x, Y[i, :]) for i in range(Y.shape[0])]
 	return np.vstack([f(xx) for f in F])
 
 

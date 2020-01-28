@@ -12,7 +12,7 @@ else:
 	from tkFileDialog import asksaveasfilename
 
 from matplotlib import gridspec
-import pbdlib as pbd
+from ... import pbdlib as pbd
 
 class Robot(object):
 	def __init__(self, T):
