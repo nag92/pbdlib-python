@@ -8,7 +8,7 @@ from mpl_toolkits.mplot3d import Axes3D
 from scipy.special import factorial
 from dtw import dtw
 from .. import plot as pblt
-# import pbdlib as pbd
+from .... import pbdlib as pbd
 plt.style.use('ggplot')
 
 import scipy.sparse as ss
