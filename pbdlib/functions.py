@@ -225,7 +225,7 @@ def gaussPDF(x, mean, covar):
 
 	# Distinguish between multi and single variate distribution:
 	if n_vars > 1:
-		lambdadiff = np.linalg.inv(covar).dot(diff)*diff
+		lambdadiff = np.linalg.pinv(covar).dot(diff)*diff
 		scale = np.sqrt(
 			np.power((2 * np.pi), n_vars) * (abs(np.linalg.det(covar)) + 2.2251e-308))
 		p = np.sum(lambdadiff, 0)

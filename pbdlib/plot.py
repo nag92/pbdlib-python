@@ -8,6 +8,8 @@ from matplotlib.path import Path
 import matplotlib.patches as patches
 import matplotlib.cm as cm
 import itertools
+from matplotlib.patches import Polygon
+from matplotlib.collections import PatchCollection
 
 flatui = (1./255 * np.array([[51, 77, 92],  # kuler theme Flat design color
 								  [69, 178, 157],
@@ -387,6 +389,40 @@ def plot_mixture_linear_system(model, mode='glob', nb_sub=20, gmm=True, min_alph
 		return statecmap, strm
 	else:
 		return statecmap
+
+
+
+def plot_gmm2(Mu, Sigma, dim=None, color=[1, 0, 0], alpha=0.5, linewidth=1, markersize=6,
+			 ax=None, empty=False, edgecolor=None, edgealpha=None, priors=None,
+			 border=False, nb=1, swap=True, center=True):
+	import matplotlib
+
+	nbDrawingSeg = 10
+	t = np.linspace(-np.pi, np.pi, nbDrawingSeg)
+	X = []
+	nb_state = len(Mu[0])
+	patches = []
+	fig, ax = plt.subplots()
+
+	for i in xrange(2):
+
+		w, v = np.linalg.eig(Sigma[i])
+		R = np.real(np.lib.scimath.sqrt(v.dot(np.diag(w))))
+		x = R.dot(np.array([np.cos(t), np.sin(t)])) + np.matlib.repmat(Mu[:, i].reshape((-1, 1)), 1, nbDrawingSeg)
+		x = x.transpose().tolist()
+		X.append(x)
+		patches.append(Polygon(x, facecolor='r', zorder=20, edgecolor=edgecolor))
+
+	print patches
+	p = PatchCollection(patches)
+	colors = 100 * np.random.rand(len(patches))
+	p.set_array(np.array(colors))
+
+	ax.add_collection(p)
+
+	plt.show()
+
+	return p
 
 
 def plot_gmm(Mu, Sigma, dim=None, color=[1, 0, 0], alpha=0.5, linewidth=1, markersize=6,
