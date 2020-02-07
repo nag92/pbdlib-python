@@ -402,27 +402,45 @@ def plot_gmm2(Mu, Sigma, dim=None, color=[1, 0, 0], alpha=0.5, linewidth=1, mark
 	X = []
 	nb_state = len(Mu[0])
 	patches = []
-	fig, ax = plt.subplots()
 
-	for i in xrange(2):
+	for i in xrange(nb_state):
 
 		w, v = np.linalg.eig(Sigma[i])
-		R = np.real(np.lib.scimath.sqrt(v.dot(np.diag(w))))
+		R = np.real(v.dot(np.lib.scimath.sqrt(np.diag(w))))
 		x = R.dot(np.array([np.cos(t), np.sin(t)])) + np.matlib.repmat(Mu[:, i].reshape((-1, 1)), 1, nbDrawingSeg)
 		x = x.transpose().tolist()
-		X.append(x)
-		patches.append(Polygon(x, facecolor='r', zorder=20, edgecolor=edgecolor))
+		patches.append(Polygon(x,edgecolor='r'))
+		ax.plot(Mu[0, i], Mu[1, i], 'r*')
 
-	print patches
 	p = PatchCollection(patches)
-	colors = 100 * np.random.rand(len(patches))
-	p.set_array(np.array(colors))
-
 	ax.add_collection(p)
 
-	plt.show()
-
 	return p
+
+
+
+def plot_activation( sIn, H, ax):
+
+
+	nbDrawingSeg = 50
+	t = np.linspace(-np.pi, np.pi, nbDrawingSeg)
+	nb_states = len(H)
+	patches = []
+	sIn_ = sIn
+	sIn_.insert(0,0)
+	sIn_.append(0)
+
+	for i in xrange(4):
+		h = H[i].tolist()
+		h.insert(0, 0)
+		h.append(0)
+		fn = map(list, zip(*[ sIn_, h ]) )
+		#patches.append(Polygon(fn,fill=None, edgecolor='r'))
+		ax.add_patch(Polygon(fn,fill=None, edgecolor='r'))
+
+	# p = PatchCollection(patches)
+	# ax.add_collection(p)
+
 
 
 def plot_gmm(Mu, Sigma, dim=None, color=[1, 0, 0], alpha=0.5, linewidth=1, markersize=6,
