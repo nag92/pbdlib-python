@@ -395,7 +395,7 @@ def plot_gmm2(Mu, Sigma, dim=None, color=[1, 0, 0], alpha=0.5, linewidth=1, mark
 			 border=False, nb=1, swap=True, center=True):
 	import matplotlib
 
-	nbDrawingSeg = 10
+	nbDrawingSeg = 35
 	t = np.linspace(-np.pi, np.pi, nbDrawingSeg)
 	X = []
 	nb_state = len(Mu[0])
@@ -407,10 +407,11 @@ def plot_gmm2(Mu, Sigma, dim=None, color=[1, 0, 0], alpha=0.5, linewidth=1, mark
 		R = np.real(v.dot(np.lib.scimath.sqrt(np.diag(w))))
 		x = R.dot(np.array([np.cos(t), np.sin(t)])) + np.matlib.repmat(Mu[:, i].reshape((-1, 1)), 1, nbDrawingSeg)
 		x = x.transpose().tolist()
-		patches.append(Polygon(x,edgecolor='r'))
+		patches.append(Polygon( x, edgecolor='r'))
 		ax.plot(Mu[0, i], Mu[1, i], 'r*')
 
-	p = PatchCollection(patches)
+	p = PatchCollection(patches, edgecolor='k', cmap=matplotlib.cm.jet, alpha=0.8)
+
 	ax.add_collection(p)
 
 	return p
